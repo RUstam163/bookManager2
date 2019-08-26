@@ -1,17 +1,15 @@
 package bookManager.dao;
 
-import bookManager.model.Book;
+import bookManager.model.Genre;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
 import java.util.List;
 
-
 @Repository
-public class BookDAOImpl implements BookDAO {
+public class GenreDAOImpl implements GenreDAO {
 
     private SessionFactory sessionFactory;
 
@@ -20,34 +18,35 @@ public class BookDAOImpl implements BookDAO {
         this.sessionFactory = sessionFactory;
     }
 
+
     @Override
     @SuppressWarnings("unchecked")
-    public List<Book> allBook() {
+    public List<Genre> allGenre() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("from Book book join fetch book.genre join fetch book.author").list();
+        return session.createQuery("from Genre").list();
     }
 
     @Override
-    public void add(Book book) {
+    public void add(Genre genre) {
         Session session = sessionFactory.getCurrentSession();
-        session.persist(book);
+        session.persist(genre);
     }
 
     @Override
-    public void delete(Book book) {
+    public void delete(Genre genre) {
         Session session = sessionFactory.getCurrentSession();
-        session.delete(book);
+        session.delete(genre);
     }
 
     @Override
-    public void edit(Book book) {
+    public void edit(Genre genre) {
         Session session = sessionFactory.getCurrentSession();
-        session.update(book);
+        session.update(genre);
     }
 
     @Override
-    public Book getById(int id) {
+    public Genre getById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        return session.get(Book.class, id);
+        return session.get(Genre.class, id);
     }
 }

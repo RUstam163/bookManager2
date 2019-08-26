@@ -2,20 +2,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Edit</title>
+    <title>Изменить книгу</title>
 </head>
 <body>
-<c:url value="/edit" var="var"/>
+<c:url value="/editBook" var="var"/>
 <form action="${var}" method="POST">
     <input type="hidden" name="id" value="${book.id}">
-    <label for="title">Title</label>
-    <input type="text" name="title" id="title">
-    <label for="year">Year</label>
-    <input type="text" name="year" id="year">
-    <label for="genre">Genre</label>
-    <input type="text" name="genre" id="genre">
-    <label for="watched">Watched</label>
-    <input type="text" name="watched" id="watched">
+    <label for="bookName">Название</label>
+    <input type="text" name="bookName" id="bookName" value="${book.bookName}">
+    <label for="bookAuthor">Автор</label>
+    <input type="text" name="bookAuthor" id="bookAuthor" value="${book.author}">
+    <label for="bookGenre">Жанр</label>
+    <input type="text" name="bookGenre" id="bookGenre" value="${book.genre}">
+    <label for="publisher">Издательство</label>
+    <input type="text" name="publisher" id="publisher" value="${book.publisher}">
+    <label for="year">Год издания</label>
+    <input type="text" name="year" id="year" value="${book.year}">
+    <label for="city">Город</label>
+    <input type="text" name="city" id="city" value="${book.city}">
+
     <input type="submit" value="Edit book">
 </form>
 </body>

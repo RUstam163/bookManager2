@@ -1,16 +1,51 @@
 package bookManager.model;
 
+import javax.persistence.*;
+
+/**
+ * this simple java bean object
+ */
+
+@Entity
+@Table(name = "book")
 public class Book {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String title;
+
+    @Column(name = "book_name")
+    private String bookName;
+
+    @Column(name = "publisher")
+    private String publisher;
+
+    @Column(name = "year")
     private int year;
-    private String genre;
-    private boolean watched;
+
+    @Column(name = "city")
+    private String city;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "book_author")
+    private Author author;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "book_genre")
+    private Genre genre;
 
     public Book() {
     }
 
-    public int getId() {
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public long getId() {
         return id;
     }
 
@@ -18,12 +53,12 @@ public class Book {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getPublisher() {
+        return publisher;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 
     public int getYear() {
@@ -34,30 +69,41 @@ public class Book {
         this.year = year;
     }
 
-    public String getGenre() {
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public Genre getGenre() {
         return genre;
     }
 
-    public void setGenre(String genre) {
+    public void setGenre(Genre genre) {
         this.genre = genre;
-    }
-
-    public boolean isWatched() {
-        return watched;
-    }
-
-    public void setWatched(boolean watched) {
-        this.watched = watched;
     }
 
     @Override
     public String toString() {
         return "Book{" +
                 "id=" + id +
-                ", title='" + title + '\'' +
+                ", bookName='" + bookName + '\'' +
+                ", author=" + author +
+                ", genre=" + genre +
+                ", publisher='" + publisher + '\'' +
                 ", year=" + year +
-                ", genre='" + genre + '\'' +
-                ", watched=" + watched +
+                ", city='" + city + '\'' +
                 '}';
     }
 }
+
