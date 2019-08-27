@@ -54,9 +54,6 @@ public class GenreController {
     @GetMapping(value = "/editGenre/{id}")
     public ModelAndView editGenrePage(@PathVariable("id") int id) {
         Genre genre = genreService.getById(id);
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("genreEditPage");
-//        modelAndView.addObject("genre", genre);
         return new ModelAndView("genreEditPage","genre", genre);
     }
 

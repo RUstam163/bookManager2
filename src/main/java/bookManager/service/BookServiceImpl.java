@@ -2,7 +2,9 @@ package bookManager.service;
 
 import bookManager.dao.BookDAO;
 import bookManager.dao.BookDAOImpl;
+import bookManager.model.Author;
 import bookManager.model.Book;
+import bookManager.model.Genre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +27,19 @@ public class BookServiceImpl implements BookService {
         return bookDAO.allBook();
     }
 
+    //////////////////////////
+    @Override
+    @Transactional
+    public List<Genre> genreList() {
+        return bookDAO.genreList();
+    }
+
+    @Override
+    @Transactional
+    public List<Author> authorList() {
+        return bookDAO.authorList();
+    }
+////////////////////////////////////////
     @Override
     @Transactional
     public void add(Book book) {

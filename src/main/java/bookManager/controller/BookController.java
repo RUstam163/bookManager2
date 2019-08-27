@@ -2,7 +2,10 @@ package bookManager.controller;
 
 import bookManager.model.Author;
 import bookManager.model.Book;
+import bookManager.model.Genre;
+import bookManager.service.AuthorService;
 import bookManager.service.BookService;
+import bookManager.service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,7 +19,9 @@ import java.util.List;
 @Controller
 public class BookController {
 
+
     private BookService bookService;
+
 
     @Autowired
     public void setBookService(BookService bookService) {
@@ -33,9 +38,13 @@ public class BookController {
     }
 
     @RequestMapping(value = "/addBook", method = RequestMethod.GET)
-    public ModelAndView addPage() {
+    public ModelAndView addBookPage() {
+        List<Genre> genres = bookService.genreList();
+        List<Author> authors = bookService.authorList();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("bookEditPage");
+        modelAndView.setViewName("bookAddPage");
+        modelAndView.addObject("genreList", genres);
+        modelAndView.addObject("authorList", authors);
         return modelAndView;
     }
 
@@ -59,8 +68,12 @@ public class BookController {
     @RequestMapping(value = "/editBook/{id}", method = RequestMethod.GET)
     public ModelAndView editPage(@PathVariable("id") int id) {
         Book book = bookService.getById(id);
+        List<Genre> genres = bookService.genreList();
+        List<Author> authors = bookService.authorList();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("bookEditPage");
+        modelAndView.addObject("genreList", genres);
+        modelAndView.addObject("authorList", authors);
         modelAndView.addObject("book", book);
         return modelAndView;
     }
@@ -68,7 +81,7 @@ public class BookController {
     @RequestMapping(value = "/editBook", method = RequestMethod.POST)
     public ModelAndView editBook(@ModelAttribute("book") Book book) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/");
+        modelAndView.setViewName("redirect:/book");
         bookService.edit(book);
         return modelAndView;
     }

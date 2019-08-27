@@ -2,19 +2,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>
     <title>Добавить новый жанр</title>
 </head>
 <body>
-<div>
-    <h2 class="headline">Добавить новый жанр</h2>
-</div>
-<div>
-    <c:url value="/addGenre" var="addGenre"/>
-    <form action="${addGenre}" method="POST">
-        <label for="genre">Жанр</label>
-        <input type="text" name="genre" id="genre">
+<c:url value="/addGenre" var="addGenre"/>
+<form class="transparent" action="${addGenre}" method="POST">
+    <div class="form-inner">
+        <h3>Добавить новый жанр</h3>
+        <label for="genreName">Жанр</label>
+        <input type="text" name="genreName" id="genreName">
         <input type="submit" value="Добавить жанр">
-    </form>
-</div>
+    </div>
+</form>
 </body>
 </html>

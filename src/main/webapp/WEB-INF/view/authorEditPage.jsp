@@ -2,15 +2,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>
     <title>Изменить автора</title>
 </head>
 <body>
-<div>
-    <h2 class="headline">Изменить автора</h2>
-</div>
-<div>
-    <c:url value="/editAuthor" var="editAuthor"/>
-    <form action="${editAuthor}" method="POST">
+<c:url value="/editAuthor" var="editAuthor"/>
+<form class="transparent" action="${editAuthor}" method="POST">
+    <div class="form-inner">
+        <h3>Изменить автора</h3>
         <input type="hidden" name="id" id="id" value="${author.id}">
         <label for="name">Имя</label>
         <input type="text" name="name" id="name" value="${author.name}">
@@ -19,7 +18,7 @@
         <label for="fathername">Фамилия</label>
         <input type="text" name="fathername" id="fathername" value="${author.fathername}">
         <input type="submit" value="Изменить автора">
-    </form>
-</div>
+    </div>
+</form>
 </body>
 </html>

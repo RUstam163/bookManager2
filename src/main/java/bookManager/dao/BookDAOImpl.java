@@ -1,6 +1,8 @@
 package bookManager.dao;
 
+import bookManager.model.Author;
 import bookManager.model.Book;
+import bookManager.model.Genre;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,20 @@ public class BookDAOImpl implements BookDAO {
         Session session = sessionFactory.getCurrentSession();
         return session.createQuery("from Book book join fetch book.genre join fetch book.author").list();
     }
+    ///////////////////////////////////////////
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Genre> genreList() {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Genre").list();
+    }
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Author> authorList() {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Author ").list();
+    }
+    ////////////////////////////
 
     @Override
     public void add(Book book) {
