@@ -13,13 +13,13 @@ CREATE TABLE `author` (
   `lastname` varchar(30) NOT NULL,
   `fathername` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
 CREATE TABLE `genre` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `genre_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
 CREATE TABLE `book` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -34,4 +34,4 @@ CREATE TABLE `book` (
   KEY `book_grene` (`book_genre`),
   CONSTRAINT `book_ibfk_1` FOREIGN KEY (`book_author`) REFERENCES `author` (`id`),
   CONSTRAINT `book_ibfk_2` FOREIGN KEY (`book_genre`) REFERENCES `genre` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
