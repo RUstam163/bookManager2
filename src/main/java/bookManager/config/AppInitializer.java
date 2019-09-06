@@ -1,5 +1,6 @@
 package bookManager.config;
 
+import org.springframework.context.annotation.Import;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

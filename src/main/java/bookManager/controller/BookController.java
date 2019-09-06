@@ -8,10 +8,7 @@ import bookManager.service.BookService;
 import bookManager.service.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -65,7 +62,7 @@ public class BookController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/editBook/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/editBook/{id}")
     public ModelAndView editPage(@PathVariable("id") int id) {
         Book book = bookService.getById(id);
         List<Genre> genres = bookService.genreList();
@@ -78,7 +75,7 @@ public class BookController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/editBook", method = RequestMethod.POST)
+    @PostMapping(value = "/editBook")
     public ModelAndView editBook(@ModelAttribute("book") Book book) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/book");

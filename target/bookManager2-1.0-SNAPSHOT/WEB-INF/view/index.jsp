@@ -6,20 +6,25 @@
     <title>Библиотека</title>
 </head>
 <body>
+<div>
+    <form action="/logout" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
 <div class="headlogo">
     <h1 class="">Библиотека</h1>
 </div>
 <div class="startline">
     <h3>Список книг</h3>
-    <a href="/book" class="">Перейти к списку книг</a>
+    <a href="/book" class="" name="book">Перейти к списку книг</a>
 </div>
 <div class="startline">
     <h3>Список авторов</h3>
-    <a href="/author" class="">Перейти к списку авторов</a>
+    <a href="/author" class="" name="author">Перейти к списку авторов</a>
 </div>
 <div class="startline">
     <h3 class="">Список жанров</h3>
-    <a href="/genre" class="">Перейти к списку жанров</a>
+    <a href="/genre" class="" name="genre">Перейти к списку жанров</a>
 </div>
 </body>
 </html>

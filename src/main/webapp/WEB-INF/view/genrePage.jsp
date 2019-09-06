@@ -6,7 +6,12 @@
     <title>Жанры</title>
 </head>
 <body>
-
+<ul class="menu-main">
+    <li><a href="/" class="current">Главная страница</a></li>
+    <li><a href="/genre">Жанры</a></li>
+    <li><a href="/author">Авторы</a></li>
+    <li><a href="/book">Книги</a></li>
+</ul>
 <h2 class="headline">Жанры</h2>
 <table>
     <tr>

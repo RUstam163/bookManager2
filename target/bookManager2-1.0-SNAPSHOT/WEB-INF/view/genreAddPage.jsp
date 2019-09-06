@@ -6,13 +6,19 @@
     <title>Добавить новый жанр</title>
 </head>
 <body>
+<ul class="menu-main">
+    <li><a href="/" class="current">Главная страница</a></li>
+    <li><a href="/genre">Жанры</a></li>
+    <li><a href="/author">Авторы</a></li>
+    <li><a href="/book">Книги</a></li>
+</ul>
 <c:url value="/addGenre" var="addGenre"/>
 <form class="transparent" action="${addGenre}" method="POST">
     <div class="form-inner">
         <h3>Добавить новый жанр</h3>
         <label for="genreName">Жанр</label>
-        <input type="text" name="genreName" id="genreName">
-        <input type="submit" value="Добавить жанр">
+        <input type="text" name="genreName" id="genreName" required>
+        <input type="submit" value="Добавить жанр" name="sub">
     </div>
 </form>
 </body>
