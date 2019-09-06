@@ -1,15 +1,8 @@
 package bookManager.model;
 
-
-import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * this simple java bean
- */
 
 @Entity
 @Table(name = "genre")

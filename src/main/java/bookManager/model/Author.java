@@ -1,13 +1,7 @@
 package bookManager.model;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.*;
 import java.util.List;
-
-/**
- * This simple java been
- */
 
 @Entity
 @Table(name = "author")

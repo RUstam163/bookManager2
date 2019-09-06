@@ -9,10 +9,10 @@ import java.util.List;
 public interface BookDAO {
     List<Book> allBook();
 
-    //////////////////////////////
     List<Genre> genreList();
+
     List<Author> authorList();
-///////////////////////////////////
+
     void add(Book book);
 
     void delete(Book book);

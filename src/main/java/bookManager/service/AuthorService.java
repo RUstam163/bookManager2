@@ -5,6 +5,7 @@ import bookManager.model.Author;
 import java.util.List;
 
 public interface AuthorService {
+
     List<Author> allAuthor();
 
     void add(Author author);

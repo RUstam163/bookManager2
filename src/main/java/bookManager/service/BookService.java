@@ -7,12 +7,12 @@ import bookManager.model.Genre;
 import java.util.List;
 
 public interface BookService {
+
     List<Book> allBook();
 
-    //////////
     List<Genre> genreList();
+
     List<Author> authorList();
-    ////////////////
 
     void add(Book book);
 

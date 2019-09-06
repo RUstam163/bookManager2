@@ -4,10 +4,7 @@ import bookManager.model.Author;
 import bookManager.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -21,7 +18,7 @@ public class AuthorController {
         this.authorService = authorService;
     }
 
-    @RequestMapping(value = "/author", method = RequestMethod.GET)
+    @GetMapping(value = "/author")
     public ModelAndView allAuthor() {
         List<Author> authors = authorService.allAuthor();
         ModelAndView modelAndView = new ModelAndView();
@@ -30,7 +27,7 @@ public class AuthorController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/deleteAuthor/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/deleteAuthor/{id}")
     public ModelAndView deleteAuthor(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/author");
@@ -39,14 +36,14 @@ public class AuthorController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/addAuthor", method = RequestMethod.GET)
+    @GetMapping(value = "/addAuthor")
     public ModelAndView addAuthorPage() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("authorAddPage");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/addAuthor", method = RequestMethod.POST)
+    @PostMapping(value = "/addAuthor")
     public ModelAndView addAuthor(@ModelAttribute("author") Author author) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/author");
@@ -54,7 +51,7 @@ public class AuthorController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/editAuthor/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/editAuthor/{id}")
     public ModelAndView editGenrePage(@PathVariable("id") int id) {
         Author author = authorService.getById(id);
         ModelAndView modelAndView = new ModelAndView();
@@ -63,7 +60,7 @@ public class AuthorController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/editAuthor", method = RequestMethod.POST)
+    @PostMapping(value = "/editAuthor")
     public ModelAndView editGenre(@ModelAttribute("author") Author author) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/author");

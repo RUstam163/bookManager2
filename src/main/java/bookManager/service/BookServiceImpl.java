@@ -1,7 +1,6 @@
 package bookManager.service;
 
 import bookManager.dao.BookDAO;
-import bookManager.dao.BookDAOImpl;
 import bookManager.model.Author;
 import bookManager.model.Book;
 import bookManager.model.Genre;
@@ -27,7 +26,6 @@ public class BookServiceImpl implements BookService {
         return bookDAO.allBook();
     }
 
-    //////////////////////////
     @Override
     @Transactional
     public List<Genre> genreList() {
@@ -39,7 +37,7 @@ public class BookServiceImpl implements BookService {
     public List<Author> authorList() {
         return bookDAO.authorList();
     }
-////////////////////////////////////////
+
     @Override
     @Transactional
     public void add(Book book) {

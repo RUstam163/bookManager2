@@ -1,11 +1,6 @@
 package bookManager.model;
 
 import javax.persistence.*;
-import java.util.List;
-
-/**
- * this simple java bean object
- */
 
 @Entity
 @Table(name = "book")

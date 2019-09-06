@@ -18,7 +18,7 @@ public class GenreController {
         this.genreService = genreService;
     }
 
-    @RequestMapping(value = "/genre", method = RequestMethod.GET)
+    @GetMapping(value = "/genre")
     public ModelAndView allGenre() {
         List<Genre> genres = genreService.allGenre();
         ModelAndView modelAndView = new ModelAndView();
@@ -27,7 +27,7 @@ public class GenreController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/deleteGenre/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/deleteGenre/{id}")
     public ModelAndView deleteGenre(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/genre");
@@ -36,14 +36,14 @@ public class GenreController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/addGenre", method = RequestMethod.GET)
+    @GetMapping(value = "/addGenre")
     public ModelAndView addGenrePage() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("genreAddPage");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/addGenre", method = RequestMethod.POST)
+    @PostMapping(value = "/addGenre")
     public ModelAndView addGenre(@ModelAttribute("genre") Genre genre) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/genre");
@@ -54,7 +54,7 @@ public class GenreController {
     @GetMapping(value = "/editGenre/{id}")
     public ModelAndView editGenrePage(@PathVariable("id") int id) {
         Genre genre = genreService.getById(id);
-        return new ModelAndView("genreEditPage","genre", genre);
+        return new ModelAndView("genreEditPage", "genre", genre);
     }
 
     @PostMapping(value = "/editGenre")
