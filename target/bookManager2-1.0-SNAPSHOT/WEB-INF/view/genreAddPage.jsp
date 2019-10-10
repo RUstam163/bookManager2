@@ -19,6 +19,9 @@
         <label for="genreName">Жанр</label>
         <input type="text" name="genreName" id="genreName" required>
         <input type="submit" value="Добавить жанр" name="sub">
+        <input type="hidden"
+               name="${_csrf.parameterName}"
+               value="${_csrf.token}"/>
     </div>
 </form>
 </body>

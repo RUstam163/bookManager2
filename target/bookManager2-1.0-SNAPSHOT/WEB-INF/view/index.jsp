@@ -7,9 +7,6 @@
 </head>
 <body>
 <div>
-    <form action="/logout" method="post">
-        <input type="submit" value="Sign Out"/>
-    </form>
 </div>
 <div class="headlogo">
     <h1 class="">Библиотека</h1>

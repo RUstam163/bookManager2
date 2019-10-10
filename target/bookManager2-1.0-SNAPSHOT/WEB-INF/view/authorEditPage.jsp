@@ -24,6 +24,9 @@
         <label for="fathername">Фамилия</label>
         <input type="text" name="fathername" id="fathername" value="${author.fathername}" required>
         <input type="submit" value="Изменить автора" name="sub">
+        <input type="hidden"
+               name="${_csrf.parameterName}"
+               value="${_csrf.token}"/>
     </div>
 </form>
 </body>

@@ -40,6 +40,9 @@
         <label for="city">Город</label>
         <input type="text" name="city" id="city" value="${book.city}" required>
         <input type="submit" value="Edit book" name="sub">
+        <input type="hidden"
+               name="${_csrf.parameterName}"
+               value="${_csrf.token}"/>
     </div>
 </form>
 </body>

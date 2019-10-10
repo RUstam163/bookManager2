@@ -39,6 +39,9 @@
         <label for="city">Город</label>
         <input type="text" name="city" id="city" required>
         <input type="submit" value="Добавить новую книгу" name="sub">
+        <input type="hidden"
+               name="${_csrf.parameterName}"
+               value="${_csrf.token}"/>
     </div>
 </form>
 </body>

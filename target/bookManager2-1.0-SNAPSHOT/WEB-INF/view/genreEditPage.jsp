@@ -20,6 +20,9 @@
         <label for="genreName">Жанр</label>
         <input type="text" name="genreName" id="genreName" value="${genre.genreName}" required>
         <input type="submit" value="Изменить жанр" name="sub">
+        <input type="hidden"
+               name="${_csrf.parameterName}"
+               value="${_csrf.token}"/>
     </div>
 </form>
 </body>

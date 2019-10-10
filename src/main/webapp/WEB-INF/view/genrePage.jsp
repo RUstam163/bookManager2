@@ -6,6 +6,7 @@
     <title>Жанры</title>
 </head>
 <body>
+<a href="<c:url value="/logout" />" class="link">Выйти</a>
 <ul class="menu-main">
     <li><a href="/" class="current">Главная страница</a></li>
     <li><a href="/genre">Жанры</a></li>
